@@ -10,7 +10,6 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"strings"
 	"sync"
 	"time"
@@ -126,12 +125,12 @@ func processHosts() {
 
 	for r := range results {
 		if r.err != nil {
-			log.Printf("%s: %v\n", r.host, r.err)
+			fmt.Printf("%s: %v\n", r.host, r.err)
 			continue
 		}
 		for _, cert := range r.certs {
 			for _, err := range cert.errs {
-				log.Println(err)
+				fmt.Println(err)
 			}
 		}
 	}
